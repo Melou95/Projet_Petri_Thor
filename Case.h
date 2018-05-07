@@ -1,7 +1,12 @@
+#ifndef Case_H_
+#define Case_H_
+
 // =============================================================================
 //                               Includes
 // =============================================================================
+#include "Bacterie.h"
 #include <map>
+using namespace std;
 
 class Case {
   public :
@@ -23,8 +28,8 @@ class Case {
   // ===========================================================================
   //                                Setters
   // ===========================================================================
-  Bacterie * set_p_bact(Bacterie bact&);
-  map<char,float> set_milieu(float a, float b, float c);
+  void set_p_bact(Bacterie bact);
+  void set_milieu(float a, float b, float c);
   // ===========================================================================
   //                               Operators
   // ===========================================================================
@@ -42,3 +47,5 @@ class Case {
   Bacterie * p_bact_;
   
 };
+
+#endif

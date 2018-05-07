@@ -2,6 +2,9 @@
 //                                 Includes
 // =============================================================================
 #include "Case.h"
+#include "Bacterie.h"
+#include <map>
+using namespace std;
 
 
 // =============================================================================
@@ -16,7 +19,9 @@ Case::Case(){
 // =============================================================================
 //                               Destructors
 // =============================================================================
-
+Case::~Case(){
+  delete p_bact_;
+}
 // ===========================================================================
 //                                Getters
 // ===========================================================================
@@ -24,19 +29,19 @@ Case::Case(){
     return milieu_;
   }
   
-  Bacterie * Case:p_bact(){
+  Bacterie * Case::p_bact(){
     return p_bact_;
   }
 // ===========================================================================
 //                                Setters
 // ===========================================================================
-  Bacterie * set_p_bact(Bacterie bact){
+void Case::set_p_bact(Bacterie bact){
     p_bact_=new Bacterie;
     *p_bact_=bact;
   }
   
   
-  map<char,float> set_milieu(float a, float b, float c){
+void Case::set_milieu(float a, float b, float c){
     milieu_['A']=a;
     milieu_['B']=b;
     milieu_['C']=c;
