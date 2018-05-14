@@ -12,12 +12,6 @@ using namespace std;
 // =============================================================================
 Bacterie::Bacterie(){
   phenotype_ = vector<float>(3, 2.0);
-  if(phenotype_.size() == 3) {
-    cout << "wesh à 3" << endl;
-  } else {
-    cout << " bah si il compile" << endl;
-  } 
-  
   Pmut_=0;
   Pdeath_=0.02;
   Wmin_=0.001;
