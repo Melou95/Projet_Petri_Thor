@@ -11,9 +11,14 @@ int main(){
     cout<< "Hello World !\0" <<endl;
     cout<< " " <<endl;
     
-    Env monde;
+    S bact1;
+    cout << bact1.phenotype()[0] << endl;
+    bact1.division();
+    cout << bact1.phenotype()[0] << endl;    
+    /*Env monde;
     cout << monde.T() << endl;
-    cout << monde.D() << endl;
+    cout << monde.D() << endl;*/
+    
     
     return 0;
     

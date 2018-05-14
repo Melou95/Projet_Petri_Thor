@@ -2,16 +2,22 @@
 //                                 Includes
 // =============================================================================
 #include "Bacterie.h"
-#include <map>
+#include <iostream>
+#include <vector>
+#include <cassert>
 using namespace std;
 
 // =============================================================================
 //                              Constructors
 // =============================================================================
 Bacterie::Bacterie(){
-  phenotype_['A']=0.0;
-  phenotype_['B']=0.0;
-  phenotype_['C']=0.0;
+  phenotype_ = vector<float>(3, 2.0);
+  if(phenotype_.size() == 3) {
+    cout << "wesh à 3" << endl;
+  } else {
+    cout << " bah si il compile" << endl;
+  } 
+  
   Pmut_=0;
   Pdeath_=0.02;
   Wmin_=0.001;
@@ -26,7 +32,7 @@ Bacterie::~Bacterie()=default;
 // ===========================================================================
 //                                Getters
 // ===========================================================================
-map<char,float> Bacterie::phenotype(){
+vector<float> Bacterie::phenotype(){
   return phenotype_;
 }
 
@@ -53,9 +59,9 @@ char Bacterie::type(){
 //                                Setters
 // ===========================================================================
 void Bacterie::set_phenotype(float a, float b, float c){
-  phenotype_['A']=a;
-  phenotype_['B']=b;
-  phenotype_['C']=c;
+  phenotype_[0]=a;
+  phenotype_[1]=b;
+  phenotype_[2]=c;
 }
 
 void Bacterie::fitness(float fit){
@@ -69,4 +75,12 @@ void Bacterie::set_type(char nom){
 // =============================================================================
 //                         Public function members
 // =============================================================================
+void Bacterie::division(){
+  for (int i=0 ; i<phenotype_.size(); ++i)
+  {
+   phenotype_[i]/=2;
+  }
+}
+  
+
 
