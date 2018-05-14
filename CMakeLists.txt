@@ -4,6 +4,4 @@ project (Projet_Petri_Thor LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMALE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
-
 add_executable(main main.cpp Bacterie.cpp L.cpp S.cpp Env.cpp Case.cpp)

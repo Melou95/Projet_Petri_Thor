@@ -36,8 +36,15 @@ Case::~Case(){
 //                                Setters
 // ===========================================================================
 void Case::set_p_bact(Bacterie bact){
-    p_bact_=new Bacterie;
-    *p_bact_=bact;
+    if (p_bact_!=nullptr){
+      delete p_bact_;
+    }
+    if (bact.type()=='S'){
+      p_bact_=new S(bact);
+    }
+    else if (bact.type()=='L'){
+      p_bact_=new L(bact);
+    }
   }
   
   
