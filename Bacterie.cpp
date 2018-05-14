@@ -12,8 +12,21 @@ using namespace std;
 //                              Constructors
 // =============================================================================
 Bacterie::Bacterie(){
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  phenotype_ = vector<float>(3, 0.0);
+  Pmut_=0.0;
+=======
+<<<<<<< HEAD
+  phenotype_.push_back(0.0);
+  phenotype_.push_back(0.0);
+  phenotype_.push_back(0.0);
+=======
+>>>>>>> d9878aefee5e9900fd0e6d89454eaee67b8e8e2b
   phenotype_ = vector<float>(3, 2.0);
   Pmut_=0;
+>>>>>>> 984ac33fae65c0fa7bb12d578a004abe9f0ec8d9
   Pdeath_=0.02;
   Wmin_=0.001;
   fitness_=0.0;
@@ -78,6 +91,22 @@ void Bacterie::division(){
    phenotype_[i]/=2;
   }
 }
+
+void Bacterie::mutation(){
+  float nombre = rand() % 100 + 0;
+  nombre = nombre / 100;
+  cout << "le nombre est " << nombre << endl;
+  if (nombre < Pmut_){
+    if (type_ == 'S'){
+      set_type('L');
+    }
+    else {
+      set_type('S');
+    }
+  }
+
+}
+  
   
 
 
