@@ -3,6 +3,10 @@
 // =============================================================================
 #include "Case.h"
 #include "Bacterie.h"
+#include "L.h"
+#include "L.cpp"
+#include "S.h"
+#include "S.cpp"
 #include <map>
 using namespace std;
 
@@ -35,19 +39,20 @@ Case::~Case(){
 // ===========================================================================
 //                                Setters
 // ===========================================================================
-void Case::set_p_bact(Bacterie bact){
+void Case::set_p_bact(L bact){
     if (p_bact_!=nullptr){
       delete p_bact_;
     }
-    if (bact.type()=='S'){
-      p_bact_=new S(bact);
-    }
-    else if (bact.type()=='L'){
-      p_bact_=new L(bact);
-    }
+    p_bact_=new L(bact);
   }
-  
-  
+
+void Case::set_p_bact(S bact){
+    if (p_bact_!=nullptr){
+      delete p_bact_;
+    }
+    p_bact_=new S(bact);
+  }
+
 void Case::set_milieu(float a, float b, float c){
     milieu_[0]=a;
     milieu_[1]=b;

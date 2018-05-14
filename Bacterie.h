@@ -29,7 +29,9 @@ class Bacterie {
   float fitness();
   char type();
   virtual float RAA()=0;
-  virtual float RAB()=0; 
+  virtual float RBB()=0;
+  virtual float RBC()=0;
+  virtual float RAB()=0;
   // ===========================================================================
   //                                Setters
   // ===========================================================================

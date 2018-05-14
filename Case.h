@@ -5,6 +5,10 @@
 //                               Includes
 // =============================================================================
 #include "Bacterie.h"
+#include "L.h"
+#include "L.cpp"
+#include "S.h"
+#include "S.cpp"
 #include <map>
 using namespace std;
 
@@ -28,7 +32,8 @@ class Case {
   // ===========================================================================
   //                                Setters
   // ===========================================================================
-  void set_p_bact(Bacterie bact);
+  void set_p_bact(L bact);
+  void set_p_bact(S bact);
   void set_milieu(float a, float b, float c);
   // ===========================================================================
   //                               Operators
