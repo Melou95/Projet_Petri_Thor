@@ -12,8 +12,16 @@ int main(){
     cout<< " " <<endl;
     
     Env monde;
-    cout << monde.T() << endl;
-    cout << monde.D() << endl;
+    //cout << monde.T() << endl;
+    //cout << monde.D() << endl;
+    
+    
+    
+    Case c;
+    /*c.set_milieu(0,0,0);
+    cout<<c.milieu()[0]<<endl;*/
+    c.metabolisme();
+    cout<<c.milieu()[0]<<endl;
     
     return 0;
     

@@ -5,6 +5,7 @@
 //                               Includes
 // =============================================================================
 #include "Bacterie.h"
+#include "Case.h"
 
 class S : public Bacterie{
   public :
