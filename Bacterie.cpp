@@ -2,16 +2,26 @@
 //                                 Includes
 // =============================================================================
 #include "Bacterie.h"
+<<<<<<< HEAD
 #include <vector>
+=======
+#include <iostream>
+#include <vector>
+#include <cassert>
+>>>>>>> refs/remotes/origin/master
 using namespace std;
 
 // =============================================================================
 //                              Constructors
 // =============================================================================
 Bacterie::Bacterie(){
+<<<<<<< HEAD
   phenotype_.push_back(0.0);
   phenotype_.push_back(0.0);
   phenotype_.push_back(0.0);
+=======
+  phenotype_ = vector<float>(3, 2.0);
+>>>>>>> refs/remotes/origin/master
   Pmut_=0;
   Pdeath_=0.02;
   Wmin_=0.001;
@@ -69,4 +79,12 @@ void Bacterie::set_type(char nom){
 // =============================================================================
 //                         Public function members
 // =============================================================================
+void Bacterie::division(){
+  for (int i=0 ; i<phenotype_.size(); ++i)
+  {
+   phenotype_[i]/=2;
+  }
+}
+  
+
 
