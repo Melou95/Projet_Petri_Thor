@@ -11,8 +11,8 @@ using namespace std;
 //                              Constructors
 // =============================================================================
 Bacterie::Bacterie(){
-  phenotype_ = vector<float>(3, 2.0);
-  Pmut_=0;
+  phenotype_ = vector<float>(3, 0.0);
+  Pmut_=0.0;
   Pdeath_=0.02;
   Wmin_=0.001;
   fitness_=0.0;
@@ -75,6 +75,22 @@ void Bacterie::division(){
    phenotype_[i]/=2;
   }
 }
+
+void Bacterie::mutation(){
+  float nombre = rand() % 100 + 0;
+  nombre = nombre / 100;
+  cout << "le nombre est " << nombre << endl;
+  if (nombre < Pmut_){
+    if (type_ == 'S'){
+      set_type('L');
+    }
+    else {
+      set_type('S');
+    }
+  }
+
+}
+  
   
 
 

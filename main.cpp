@@ -17,14 +17,24 @@ int main(){
     
     //Pour tester la méthode division
     bact1.division();
-    cout << bact1.phenotype()[0] << endl;    
+    cout << bact1.phenotype()[0] << endl;  
+    
+    //Pour tester la méthode mutation
+    cout << bact1.type() << endl;  
+    bact1.mutation();
+    cout << bact1.type() << endl;
+    bact1.mutation();  
+    cout << bact1.type() << endl;
+    
+
+    
     
     //Pour tester le constructeur de Env
-    Env monde;
+    /*Env monde;
     cout << monde.T() << endl;
     cout << monde.D() << endl;
     monde.initialise();
-    monde.etat();
+    monde.etat();*/
 
     
     return 0;
