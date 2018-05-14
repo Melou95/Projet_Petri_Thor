@@ -3,7 +3,11 @@
 // =============================================================================
 #include "Env.h"
 #include "Case.h"
+#include "Bacterie.h"
+#include "L.h"
+#include "S.h"
 #include <iostream>
+#include <time.h>
 using namespace std;
 
 // =============================================================================
@@ -94,3 +98,40 @@ void Env::etat(){
   }  
 }
 
+
+void Env::initialise(){
+  int s=512;
+  int l=512;
+  int nombre_aleatoire=0;
+  for(int i=0;i<height_;++i){
+    for(int j=0;j<width_;++j){
+      nombre_aleatoire = rand()%2;
+      if(l>0){
+        if (s>0){
+          if (nombre_aleatoire == 0){
+            L bact;
+            grille_[i,j]->set_p_bact(bact);
+            s-=1;
+          }
+          else if (nombre_aleatoire ==1){
+            S bact;
+            grille_[i,j]->set_p_bact(bact);
+            l-=1;
+          }
+        }
+        else {
+          L bact;
+          grille_[i,j]->set_p_bact(bact);
+          s-=1;
+        }
+      }
+      else {
+        if (s>0){
+          S bact;
+          grille_[i,j]->set_p_bact(bact);
+          l-=1;
+        }
+      }
+    }
+  }
+}
