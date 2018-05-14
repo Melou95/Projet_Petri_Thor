@@ -9,9 +9,9 @@ using namespace std;
 //                              Constructors
 // =============================================================================
 Bacterie::Bacterie(){
-  phenotype_.push_back(1.0);
-  phenotype_.push_back(2.0);
-  phenotype_.push_back(3.0);
+  phenotype_.push_back(0.0);
+  phenotype_.push_back(0.0);
+  phenotype_.push_back(0.0);
   Pmut_=0;
   Pdeath_=0.02;
   Wmin_=0.001;
