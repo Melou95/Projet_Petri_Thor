@@ -12,6 +12,8 @@ S::S() : Bacterie() {
   type_='S';
   RBB_=0.1;
   RBC_=0.1;
+  RAA_=0;
+  RAB_=0;
 }
 
 S::S(const S& bact) : Bacterie() {
@@ -23,12 +25,12 @@ S::S(const S& bact) : Bacterie() {
 // =============================================================================
 //                               Getters
 // =============================================================================
-  float Bacterie::RBB(){
-    return RAA_;
+  float S::RBB(){
+    return RBB_;
   }
 
-  float Bacterie::RBC(){
-    return RAB_;
+  float S::RBC(){
+    return RBC_;
   }
 
 

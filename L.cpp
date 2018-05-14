@@ -15,6 +15,8 @@ L::L() : Bacterie() {
   type_='L';
   RAA_=0.1;
   RAB_=0.1;
+  RBB_=0;
+  RBC_=0;
 }
 
 L::L(const L& bact) : Bacterie() {
@@ -26,11 +28,11 @@ L::L(const L& bact) : Bacterie() {
 // =============================================================================
 //                               Getters
 // =============================================================================
-  float Bacterie::RAA(){
+  float L::RAA(){
     return RAA_;
   }
 
-  float Bacterie::RAB(){
+  float L::RAB(){
     return RAB_;
   }
 

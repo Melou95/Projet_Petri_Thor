@@ -32,8 +32,8 @@ class Case {
   // ===========================================================================
   //                                Setters
   // ===========================================================================
-  void set_p_bact(L bact);
-  void set_p_bact(S bact);
+  void set_p_bact(const L& bact);
+  void set_p_bact(const S& bact);
   void set_milieu(float a, float b, float c);
   // ===========================================================================
   //                               Operators

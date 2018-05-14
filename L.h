@@ -44,6 +44,8 @@ class L : public Bacterie{
   // ===========================================================================
   float RAA_;
   float RAB_;
+  float RBB_;
+  float RBC_;
 };
 
 #endif

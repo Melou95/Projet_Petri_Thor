@@ -39,14 +39,14 @@ Case::~Case(){
 // ===========================================================================
 //                                Setters
 // ===========================================================================
-void Case::set_p_bact(L bact){
+void Case::set_p_bact(const L& bact){
     if (p_bact_!=nullptr){
       delete p_bact_;
     }
     p_bact_=new L(bact);
   }
 
-void Case::set_p_bact(S bact){
+void Case::set_p_bact(const S& bact){
     if (p_bact_!=nullptr){
       delete p_bact_;
     }
