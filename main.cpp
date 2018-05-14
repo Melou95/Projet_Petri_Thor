@@ -22,10 +22,27 @@ int main(){
     //Pour tester le constructeur de Env
     cout << "Pour tester le constructeur de Env" << endl; 
     Env monde;
+<<<<<<< HEAD
+    //cout << monde.T() << endl;
+    //cout << monde.D() << endl;
+    
+    
+    
+    Case c;
+    /*c.set_milieu(0,0,0);
+    cout<<c.milieu()[0]<<endl;*/
+    c.metabolisme();
+    cout<<c.milieu()[0]<<endl;
+=======
     cout << monde.T() << endl;
     cout << monde.D() << endl;
     monde.initialise();
     monde.etat();
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
+>>>>>>> 549dbbade0a7fa58bb6cf851576bdd16f8cc1294
     
     return 0;
     
