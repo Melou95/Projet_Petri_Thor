@@ -23,8 +23,10 @@ class S : public Bacterie{
   //                                Getters
   // ===========================================================================
   
-  virtual float RBB();
-  virtual float RBC();
+  float RBB();
+  float RBC();
+  float RAA();
+  float RAB();
   
   // ===========================================================================
   //                               Operators

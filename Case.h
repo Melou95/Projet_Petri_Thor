@@ -6,9 +6,7 @@
 // =============================================================================
 #include "Bacterie.h"
 #include "L.h"
-#include "L.cpp"
 #include "S.h"
-#include "S.cpp"
 #include <map>
 using namespace std;
 
@@ -40,7 +38,7 @@ class Case {
   // ===========================================================================
   
   
-  void metabolisme();
+  void metabolise();
   protected :
   
   // ===========================================================================

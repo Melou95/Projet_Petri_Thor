@@ -25,14 +25,21 @@ S::S(const S& bact) : Bacterie() {
 // =============================================================================
 //                               Getters
 // =============================================================================
-  float S::RBB(){
-    return RBB_;
-  }
+float S::RBB(){
+  return RBB_;
+}
 
-  float S::RBC(){
-    return RBC_;
-  }
+float S::RBC(){
+  return RBC_;
+}
 
+float S::RAA(){
+  return RAA_;
+}
+
+float S::RAB(){
+  return RAB_;
+}
 
 // =============================================================================
 //                               Destructors

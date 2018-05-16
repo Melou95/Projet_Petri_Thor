@@ -24,8 +24,10 @@ class L : public Bacterie{
   //                                Getters
   // ===========================================================================
   
-  virtual float RAA();
-  virtual float RAB();
+  float RAA();
+  float RAB();
+  float RBB();
+  float RBC();
   
   // ===========================================================================
   //                               Operators

@@ -19,7 +19,7 @@ class Env {
   // ===========================================================================
   //                               Destructor
   // ===========================================================================
-  virtual ~Env();
+  //virtual ~Env();
   
   // ===========================================================================
   //                                Getters
@@ -44,6 +44,8 @@ class Env {
   // ===========================================================================
   void etat();
   void initialise();
+  /*void diffusion_1_case(int x, int y);
+  void diffusion();*/
 
   protected :
   
@@ -55,11 +57,12 @@ class Env {
   //                              Data members
   // ===========================================================================
   Case ** grille_;
+  int width_;
+  int height_;
+  //Case * grille_[32][32];
   int T_;
   float D_;
   int Ainit_;
-  int width_;
-  int height_;
   int temps_simul_;
 };
 
