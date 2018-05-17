@@ -164,9 +164,8 @@ void Env::diffusion_1_case(int x,int y, Case ** grille1){
   this->grille_[x,y]->milieu()[2]-9*D_*grille1[x,y]->milieu()[2]);
 }
 
-
-void Env::diffusion(){
-  //création d'une nouvelle grille copie de la grille du this
+//fait la copie d'une grille
+Case ** Env::copie_grille(){
   Case ** grille1= new Case * [this->height_];
   for(int i=0;i<this->height_;++i){
     grille1[i] = new Case [this->width_];
@@ -176,6 +175,22 @@ void Env::diffusion(){
       grille1[i,j]->set_milieu(this->grille_[i,j]->milieu()[0],this->grille_[i,j]->milieu()[1],this->grille_[i,j]->milieu()[2]);
     }
   }
+  return (grille1);
+ 
+}
+
+void Env::diffusion(){
+  //création d'une nouvelle grille copie de la grille du this
+  /*Case ** grille1= new Case * [this->height_];
+  for(int i=0;i<this->height_;++i){
+    grille1[i] = new Case [this->width_];
+    }
+  for (int i=0; i<height_; ++i){
+    for (int j=0; j<width_; ++j){
+      grille1[i,j]->set_milieu(this->grille_[i,j]->milieu()[0],this->grille_[i,j]->milieu()[1],this->grille_[i,j]->milieu()[2]);
+    }
+  }*/
+  Case ** grille1 = copie_grille();
   //applique à toutes les cases de this la fonction diffusion_1_case
   for (int i=0; i<height_; ++i){
     for (int j=0; j<width_; ++j){
