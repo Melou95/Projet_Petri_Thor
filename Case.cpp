@@ -14,8 +14,8 @@ using namespace std;
 // =============================================================================
 Case::Case(){
   milieu_.push_back(1.0);
-  milieu_.push_back(2.0);
-  milieu_.push_back(3.0);
+  milieu_.push_back(1.0);
+  milieu_.push_back(1.0);
   p_bact_ = nullptr;
 }
 // =============================================================================

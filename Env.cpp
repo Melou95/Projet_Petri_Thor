@@ -74,7 +74,7 @@ int Env::temps_simul(){
 // ===========================================================================
 //                                Setters
 // ===========================================================================
-  
+
   
   
 // =============================================================================
@@ -145,36 +145,44 @@ void Env::initialise(){
 }
 
 
-/*void Env::diffusion_1_case(int x,int y){
-  int A=this->grille_[x,y]->milieu()[0];
-  int B=this->grille_[x,y]->milieu()[1];
-  int C=this->grille_[x,y]->milieu()[2];
+void Env::diffusion_1_case(int x,int y, Case ** grille1){
   for (int i=-1;i<2;++i){
     for (int j=-1;j<2;++j){
-      int x1 = (x+i)%32;
+      int x1 = x+i;
+      if (x1==32){x1=0;}
       if (x1==-1){x1=31;}
-      //cout<<"x"<<x1<<endl;
-      int y1 = (y+j)%32;
+      int y1 = y+j;
+      if (y1==32){y1=0;}
       if (y1==-1){y1=31;}
-      //cout<<"y"<<y1<<endl;
-      this->grille_[x,y]->milieu()[0]+=D_*this->grille_[x1,y1]->milieu()[0];
-      this->grille_[x,y]->milieu()[1]+=D_*this->grille_[x1,y1]->milieu()[1];
-      this->grille_[x,y]->milieu()[2]+=D_*this->grille_[x1,y1]->milieu()[2];
+      this->grille_[x,y]->set_milieu(this->grille_[x,y]->milieu()[0]+D_*grille1[x1,y1]->milieu()[0],
+      this->grille_[x,y]->milieu()[1]+D_*grille1[x1,y1]->milieu()[1],
+      this->grille_[x,y]->milieu()[2]+D_*grille1[x1,y1]->milieu()[2]);
     }
   }
-  this->grille_[x,y]->milieu()[0]=A+9*D_*this->grille_[x,y]->milieu()[0];
-  this->grille_[x,y]->milieu()[1]=B+9*D_*this->grille_[x,y]->milieu()[1];
-  this->grille_[x,y]->milieu()[2]=C+9*D_*this->grille_[x,y]->milieu()[2];
-}*/
-//faire une grille de copie pour le temps t puis modifier chaque case de this.
+  this->grille_[x,y]->set_milieu(this->grille_[x,y]->milieu()[0]-9*D_*grille1[x,y]->milieu()[0],
+  this->grille_[x,y]->milieu()[1]-9*D_*grille1[x,y]->milieu()[1],
+  this->grille_[x,y]->milieu()[2]-9*D_*grille1[x,y]->milieu()[2]);
+}
 
-/*void Env::diffusion(){
+
+void Env::diffusion(){
+  //création d'une nouvelle grille copie de la grille du this
+  Case ** grille1= new Case * [this->height_];
+  for(int i=0;i<this->height_;++i){
+    grille1[i] = new Case [this->width_];
+    }
   for (int i=0; i<height_; ++i){
     for (int j=0; j<width_; ++j){
-      this->diffusion_1_case(i,j);
+      grille1[i,j]->set_milieu(this->grille_[i,j]->milieu()[0],this->grille_[i,j]->milieu()[1],this->grille_[i,j]->milieu()[2]);
     }
   }
-}*/
+  //applique à toutes les cases de this la fonction diffusion_1_case
+  for (int i=0; i<height_; ++i){
+    for (int j=0; j<width_; ++j){
+      this->diffusion_1_case(i,j,grille1);
+    }
+  }
+}
 
 
 
