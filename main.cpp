@@ -32,6 +32,16 @@ int main(){
     //Pour tester le constructeur de Env
     cout << "Pour tester le constructeur de Env" << endl; 
     Env monde;
+
+    
+    
+    Case c;
+    /*c.set_milieu(0,0,0);
+    cout<<c.milieu()[0]<<endl;*/
+    c.metabolisme();
+    cout<<c.milieu()[0]<<endl;
+
+
     cout << monde.T() << endl;
     cout << monde.D() << endl;
     monde.initialise();
@@ -60,6 +70,7 @@ int main(){
     cout<<monde.grille()[0,31]->milieu()[1]<<endl;
     cout<<monde.grille()[18,5]->milieu()[2]<<endl;
     
+
     return 0;
     
 }
