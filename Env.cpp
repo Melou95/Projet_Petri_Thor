@@ -156,9 +156,9 @@ void Env::diffusion_1_case(int x,int y, Case ** grille1){
       this->grille_[x][y].set_milieu(this->grille_[x][y].milieu()[0]+D_*grille1[x1][y1].milieu()[0],
       this->grille_[x][y].milieu()[1]+D_*grille1[x1][y1].milieu()[1],
       this->grille_[x][y].milieu()[2]+D_*grille1[x1][y1].milieu()[2]);
-      /*cout<<grille_[i][j].milieu()[0]<<endl;
+      cout<<grille_[i][j].milieu()[0]<<endl;
       cout<<grille_[i][j].milieu()[1]<<endl;
-      cout<<grille_[i][j].milieu()[2]<<endl;*/
+      cout<<grille_[i][j].milieu()[2]<<endl;
     }
   }
   this->grille_[x][y].set_milieu(this->grille_[x][y].milieu()[0]-9*D_*grille1[x][y].milieu()[0],
