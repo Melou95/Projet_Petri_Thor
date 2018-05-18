@@ -194,6 +194,24 @@ void Env::diffusion(){
   }
 }
 
+void Env::competion(){
+  int p_b1;
+  int p_b2;
+  int p_b3;
+  int p_b4;
+  int p_b5;
+  int p_b6;
+  int p_b7;
+  int p_b8;
+  int p_b9;
+  for (int i=-1;i<2;++i){
+    for (int j=-1;j<2;++j){
+      if (grille[i][j].p_bact()==nullptr){
+        
+      } 
+    }
+  }
+}
 
 void Env::run(){
   this->initialise();
@@ -214,7 +232,7 @@ void Env::run(){
     this->competition();
     for(int i=0;i<height_;++i){
       for(int j=0;j<width_;++j){
-        this->grille_[i][j]->bact_metabolise();
+        this->grille_[i][j].bact_metabolise();
       }
     }
   }
