@@ -38,7 +38,7 @@ int main(){
     Case c;
     /*c.set_milieu(0,0,0);
     cout<<c.milieu()[0]<<endl;*/
-    c.metabolisme();
+    c.bact_metabolise();
     cout<<c.milieu()[0]<<endl;
 
 
@@ -48,7 +48,7 @@ int main(){
     monde.etat();
 
     cout << "Pour tester la fonction metabolise" << endl;
-    Case c;
+    //Case c;
     c.set_milieu(3,2,1);
     cout<<c.milieu()[0]<<endl;
     cout<<c.milieu()[1]<<endl;
