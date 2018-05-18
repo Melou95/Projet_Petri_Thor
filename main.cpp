@@ -38,7 +38,7 @@ int main(){
     Case c;
     c.set_milieu(0,0,0);
     cout<<c.milieu()[0]<<endl;
-    c.metabolise();
+    c.bact_metabolise();
     cout<<c.milieu()[0]<<endl;
 
 

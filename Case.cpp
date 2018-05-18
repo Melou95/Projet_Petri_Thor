@@ -61,7 +61,7 @@ void Case::set_milieu(float a, float b, float c){
 // =============================================================================
 //                         Public function members
 // =============================================================================
-<<<<<<< HEAD
+
 void Case::mort_bact(){
   float nombre = rand() % 100 + 0;
   nombre = nombre / 100;
@@ -75,10 +75,7 @@ void Case::mort_bact(){
   }
 }
 
-void Case::metabolise(){
-=======
 void Case::bact_metabolise(){
->>>>>>> 5bbd3375a576d14cd63557663a815230bd3ae765
   if (this->p_bact_->type()=='L'){
   float Aout=this->milieu()[0];
   float Bout=this->milieu()[1];

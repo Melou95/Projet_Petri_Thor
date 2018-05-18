@@ -37,7 +37,7 @@ class Case {
   //                       Protected Function members
   // ===========================================================================
   
-  void metabolise();
+  void bact_metabolise();
   void mort_bact();
   
 
