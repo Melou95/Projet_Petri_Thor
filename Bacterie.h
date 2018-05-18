@@ -44,7 +44,7 @@ class Bacterie {
 //===========================================================================
 virtual void division();
 virtual void mutation();
-//virtual void mort_();
+virtual void mort_();
 
 
   protected :

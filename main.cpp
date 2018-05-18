@@ -36,8 +36,13 @@ int main(){
     
     
     Case c;
+<<<<<<< HEAD
     /*c.set_milieu(0,0,0);
     cout<<c.milieu()[0]<<endl;*/
+=======
+    c.set_milieu(0,0,0);
+    cout<<c.milieu()[0]<<endl;
+>>>>>>> 7dbfd076b9bfe07edb4d1b28941e5434cc9e2c6a
     c.bact_metabolise();
     cout<<c.milieu()[0]<<endl;
 
@@ -48,7 +53,6 @@ int main(){
     monde.etat();
 
     cout << "Pour tester la fonction metabolise" << endl;
-    //Case c;
     c.set_milieu(3,2,1);
     cout<<c.milieu()[0]<<endl;
     cout<<c.milieu()[1]<<endl;
@@ -59,6 +63,13 @@ int main(){
     cout<<c.milieu()[0]<<endl;
     cout<<c.milieu()[1]<<endl;
     cout<<c.milieu()[2]<<endl;
+    
+    cout << "Pour tester la fonction mort_bact" << endl;
+    c.mort_bact();
+    cout<<c.milieu()[0]<<endl;
+    cout<<c.milieu()[1]<<endl;
+    cout<<c.milieu()[2]<<endl;
+    
     
     cout << "Pour tester la fonction diffusion" << endl;
     cout<<monde.grille()[0,0]->milieu()[0]<<endl;
