@@ -19,7 +19,7 @@ class Env {
   // ===========================================================================
   //                               Destructor
   // ===========================================================================
-  //virtual ~Env();
+  virtual ~Env();
   
   // ===========================================================================
   //                                Getters
@@ -47,6 +47,7 @@ class Env {
   void initialise();
   void diffusion_1_case(int x, int y, Case ** grille1);
   void diffusion();
+  Case ** copie_grille();
 
 
   protected :
