@@ -18,13 +18,8 @@ Env::Env() : T_(1), D_(0.1), Ainit_(25), width_(32), height_(32), temps_simul_(5
   for(int i=0;i<height_;++i){
     grille_[i] = new Case [width_];
   }
-  
-  /*for(int i=0;i<height_;++i){
-    for(int j=0;j<width_;++j){
-      cout<<&grille_[i][j]<<endl;
-    }
-  }*/
 }
+
 // =============================================================================
 //                               Destructors
 // =============================================================================
@@ -33,6 +28,7 @@ Env::~Env(){
       delete [] grille_[i];
   }
 }
+
 // ===========================================================================
 //                                Getters
 // ===========================================================================
@@ -40,10 +36,6 @@ Case ** Env::grille(){
   return grille_;
 }
 
-/*Case * Env::grille(){
-    return grille_;   
-}
-*/
 int Env::T(){
   return T_;
 }
@@ -70,6 +62,7 @@ int Env::height(){
 int Env::temps_simul(){
   return temps_simul_;
 }
+
 // ===========================================================================
 //                                Setters
 // ===========================================================================
@@ -104,9 +97,6 @@ void Env::etat(){
     cout << "Cohabitation" << endl;
   }  
 }
-
-
-
 
 
 void Env::initialise(){
@@ -207,15 +197,16 @@ void Env::diffusion(){
 
 void Env::run(){
   this->initialise();
-  for (int i=0;i<temps_simul_;++1){
+  float p_death;
+  for (int i=0;i<temps_simul_;++i){
     this->diffusion();
     int nombre_aleatoire=0;
     for(int i=0;i<height_;++i){
       for(int j=0;j<width_;++j){
         float nombre = rand() % 100;
         nombre = nombre / 100;
-        Pdeath=this->grille_[i][j]->p_bact()->Pdeath();
-        if (nombre < Pdeath){
+        p_death=this->grille_[i][j].p_bact()->Pdeath();
+        if (nombre < p_death){
           grille_[i][j].mort_bact();
         }
       }

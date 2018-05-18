@@ -31,25 +31,18 @@ int main(){
     
     cout << "Pour tester le constructeur de Env" << endl; 
     Env monde;
-
-    
-    
-    Case c;
-<<<<<<< HEAD
-    /*c.set_milieu(0,0,0);
-    cout<<c.milieu()[0]<<endl;*/
-=======
-    c.set_milieu(0,0,0);
-    cout<<c.milieu()[0]<<endl;
->>>>>>> 7dbfd076b9bfe07edb4d1b28941e5434cc9e2c6a
-    c.bact_metabolise();
-    cout<<c.milieu()[0]<<endl;
-
-
     cout << monde.T() << endl;
     cout << monde.D() << endl;
     monde.initialise();
     monde.etat();
+    
+    
+    Case c;
+    c.set_milieu(0,0,0);
+    cout<<c.milieu()[0]<<endl;
+    c.bact_metabolise();
+    cout<<c.milieu()[0]<<endl;
+
 
     cout << "Pour tester la fonction metabolise" << endl;
     c.set_milieu(3,2,1);
@@ -62,6 +55,7 @@ int main(){
     cout<<c.milieu()[0]<<endl;
     cout<<c.milieu()[1]<<endl;
     cout<<c.milieu()[2]<<endl;
+    
     
     cout << "Pour tester la fonction mort_bact" << endl;
     c.mort_bact();
