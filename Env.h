@@ -47,6 +47,7 @@ class Env {
   void initialise();
   void diffusion_1_case(int x, int y, Case ** grille1);
   void diffusion();
+  void run();
 
 
   protected :

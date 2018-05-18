@@ -189,12 +189,25 @@ void Env::diffusion(){
 
 
 void Env::run(){
-  int nombre_aleatoire=0;
-  for(int i=0;i<height_;++i){
-    for(int j=0;j<width_;++j){
-      float nombre = rand() % 100;
-      nombre = nombre / 100;
-      this->grille_[i][j]
+  this->initialise();
+  for (int i=0;i<temps_simul_;++1){
+    this->diffusion();
+    int nombre_aleatoire=0;
+    for(int i=0;i<height_;++i){
+      for(int j=0;j<width_;++j){
+        float nombre = rand() % 100;
+        nombre = nombre / 100;
+        Pdeath=this->grille_[i][j]->p_bact()->Pdeath();
+        if (nombre < Pdeath){
+          grille_[i][j].mort_bact();
+        }
+      }
+    }
+    this->competition();
+    for(int i=0;i<height_;++i){
+      for(int j=0;j<width_;++j){
+        this->grille_[i][j]->bact_metabolise();
+      }
     }
   }
 }
