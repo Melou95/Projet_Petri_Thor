@@ -2,22 +2,19 @@
 //                                 Includes
 // =============================================================================
 #include "Bacterie.h"
-<<<<<<< HEAD
 #include <vector>
-=======
 #include <iostream>
 #include <vector>
 #include <cassert>
->>>>>>> refs/remotes/origin/master
 using namespace std;
 
 // =============================================================================
 //                              Constructors
 // =============================================================================
 Bacterie::Bacterie(){
-<<<<<<< HEAD
-  phenotype_ = vector<float>(3, 0.0);
   Pmut_=0.0;
+  phenotype_ = vector<float>(3, 2.0);
+  Pmut_=0;
   Pdeath_=0.02;
   Wmin_=0.001;
   fitness_=0.0;
@@ -54,6 +51,8 @@ float Bacterie::fitness(){
 char Bacterie::type(){
   return type_;
 }
+
+
 // ===========================================================================
 //                                Setters
 // ===========================================================================
