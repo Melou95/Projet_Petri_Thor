@@ -11,15 +11,15 @@ int main(){
     cout<< "Hello World !\0" <<endl;
     cout<< " " <<endl;
 
-    // Pour tester le contructeur de S
+    cout << "Pour tester le constructeur de S" << endl; 
     S bact1;
     cout << bact1.phenotype()[0] << endl;
     
-    //Pour tester la méthode division
+    cout << "Pour tester la méthode division" << endl; 
     bact1.division();
     cout << bact1.phenotype()[0] << endl;  
     
-    //Pour tester la méthode mutation
+    cout << "Pour tester la méthode mutation" << endl; 
     cout << bact1.type() << endl;  
     bact1.mutation();
     cout << bact1.type() << endl;
@@ -29,15 +29,19 @@ int main(){
 
     
     
-    //Pour tester le constructeur de Env
     cout << "Pour tester le constructeur de Env" << endl; 
     Env monde;
 
     
     
     Case c;
+<<<<<<< HEAD
+    /*c.set_milieu(0,0,0);
+    cout<<c.milieu()[0]<<endl;*/
+=======
     c.set_milieu(0,0,0);
     cout<<c.milieu()[0]<<endl;
+>>>>>>> 7dbfd076b9bfe07edb4d1b28941e5434cc9e2c6a
     c.bact_metabolise();
     cout<<c.milieu()[0]<<endl;
 
@@ -48,7 +52,6 @@ int main(){
     monde.etat();
 
     cout << "Pour tester la fonction metabolise" << endl;
-
     c.set_milieu(3,2,1);
     cout<<c.milieu()[0]<<endl;
     cout<<c.milieu()[1]<<endl;
