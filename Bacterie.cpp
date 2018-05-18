@@ -92,14 +92,6 @@ void Bacterie::mutation(){
       set_type('S');
     }
   }
-  
-void Bacterie::mort(){
-  float nombre = rand() % 100 + 0;
-  nombre = nombre / 100;
-  cout << "le nombre est " << nombre << endl;
-  if (nombre < Pdeath_){
-    
-
 }
   
   
