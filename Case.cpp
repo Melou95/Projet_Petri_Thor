@@ -60,7 +60,7 @@ void Case::set_milieu(float a, float b, float c){
 // =============================================================================
 //                         Public function members
 // =============================================================================
-void Case::metabolise(){
+void Case::bact_metabolise(){
   if (this->p_bact_->type()=='L'){
   float Aout=this->milieu()[0];
   float Bout=this->milieu()[1];

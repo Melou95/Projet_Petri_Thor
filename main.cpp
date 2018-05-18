@@ -55,7 +55,7 @@ int main(){
     cout<<c.milieu()[2]<<endl;
     S bact2;
     c.set_p_bact(bact2);
-    c.metabolise();
+    c.bact_metabolise();
     cout<<c.milieu()[0]<<endl;
     cout<<c.milieu()[1]<<endl;
     cout<<c.milieu()[2]<<endl;
@@ -65,6 +65,9 @@ int main(){
     cout<<monde.grille()[0,0]->milieu()[1]<<endl;
     cout<<monde.grille()[0,0]->milieu()[2]<<endl;
     /*monde.diffusion_1_case(0, 0, monde.grille());*/
+    cout<<monde.grille()[0,0]->milieu()[0]<<endl;
+    cout<<monde.grille()[0,0]->milieu()[1]<<endl;
+    cout<<monde.grille()[0,0]->milieu()[2]<<endl;
     monde.diffusion();
     cout<<monde.grille()[24,12]->milieu()[0]<<endl;
     cout<<monde.grille()[0,31]->milieu()[1]<<endl;
