@@ -49,6 +49,7 @@ class Env {
   void diffusion();
   Case ** copie_grille();
 
+
   protected :
   
   // ===========================================================================
