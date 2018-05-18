@@ -30,16 +30,9 @@ int main(){
     
     
     //Pour tester le constructeur de Env
-<<<<<<< HEAD
-    /*Env monde;
-    cout << monde.T() << endl;
-    cout << monde.D() << endl;
-    monde.initialise();
-    monde.etat();*/
-=======
     cout << "Pour tester le constructeur de Env" << endl; 
     Env monde;
-<<<<<<< HEAD
+
     //cout << monde.T() << endl;
     //cout << monde.D() << endl;
     
@@ -50,18 +43,12 @@ int main(){
     cout<<c.milieu()[0]<<endl;*/
     c.metabolisme();
     cout<<c.milieu()[0]<<endl;
-=======
+
     cout << monde.T() << endl;
     cout << monde.D() << endl;
     monde.initialise();
     monde.etat();
-<<<<<<< HEAD
-=======
->>>>>>> 984ac33fae65c0fa7bb12d578a004abe9f0ec8d9
 
->>>>>>> refs/remotes/origin/master
->>>>>>> 549dbbade0a7fa58bb6cf851576bdd16f8cc1294
-    
     return 0;
     
 }

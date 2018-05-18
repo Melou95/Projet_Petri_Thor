@@ -99,6 +99,9 @@ void Env::etat(){
 }
 
 
+
+
+
 void Env::initialise(){
   int s=512;
   int l=512;
