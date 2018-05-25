@@ -82,7 +82,8 @@ int main(){
     cout<<monde.grille()[0,31]->milieu()[1]<<endl;
     cout<<monde.grille()[18,5]->milieu()[2]<<endl;
 
-    cout << "La c'est termine" << endl;
+    cout << "Le vrai courage c'est celui de 3h du matin - Napoleon" << 
+endl;
 
     return 0;
     
