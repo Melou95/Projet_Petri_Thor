@@ -7,6 +7,7 @@
 #include "S.h"
 #include <map>
 #include <iostream>
+#include <algorithm> 
 using namespace std;
 
 
@@ -76,9 +77,9 @@ void Case::set_milieu(float a, float b, float c){
 // =============================================================================
 
 void Case::mort_bact(){
+  srand(time(NULL));
   float nombre = rand()%101;
   nombre = nombre / 100;
-  //cout << "le nombre est " << nombre << endl;
   if (nombre < p_bact_->Pdeath()){
     float A=this->p_bact_->phenotype()[0];
     float B=this->p_bact_->phenotype()[1];
