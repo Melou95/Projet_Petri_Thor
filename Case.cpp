@@ -80,8 +80,6 @@ void Case::mort_bact(){
   srand(time(NULL));
   float nombre = rand()%101;
   nombre = nombre / 100;
-  cout << "le pdeath est " << p_bact_->Pdeath() << endl;
-  cout << "le nombre est " << nombre << endl;
   if (nombre < p_bact_->Pdeath()){
     float A=this->p_bact_->phenotype()[0];
     float B=this->p_bact_->phenotype()[1];
@@ -89,7 +87,6 @@ void Case::mort_bact(){
     set_milieu(this->milieu()[0]+A,this->milieu()[1]+B,this->milieu()[2]+C);
     delete p_bact_;
     p_bact_=nullptr;
-    cout << "le pointeur est " << p_bact_ << endl;
   }
 }
 
