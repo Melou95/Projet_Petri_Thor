@@ -29,6 +29,7 @@ Env::~Env(){
   for(int i=0;i<height_;++i){
       delete [] grille_[i];
   }
+  delete [] grille_;
 }
 
 // ===========================================================================
@@ -190,6 +191,7 @@ void Env::diffusion(){
   for(int i=0;i< this->height_;++i){
       delete [] grille1[i];
   }
+  delete [] grille1;
 }
 
 void Env::reinitialisation_env_1_case(int x,int y){
