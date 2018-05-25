@@ -7,6 +7,7 @@
 #include "S.h"
 #include <map>
 #include <iostream>
+#include <algorithm> 
 using namespace std;
 
 
@@ -76,15 +77,19 @@ void Case::set_milieu(float a, float b, float c){
 // =============================================================================
 
 void Case::mort_bact(){
-  float nombre = rand() % 100 + 0;
+  srand(time(NULL));
+  float nombre = rand()%101;
   nombre = nombre / 100;
+  cout << "le pdeath est " << p_bact_->Pdeath() << endl;
   cout << "le nombre est " << nombre << endl;
-  if (nombre < this->p_bact_->Pdeath()){
+  if (nombre < p_bact_->Pdeath()){
     float A=this->p_bact_->phenotype()[0];
     float B=this->p_bact_->phenotype()[1];
     float C=this->p_bact_->phenotype()[2];
     set_milieu(this->milieu()[0]+A,this->milieu()[1]+B,this->milieu()[2]+C);
     delete p_bact_;
+    p_bact_=nullptr;
+    cout << "le pointeur est " << p_bact_ << endl;
   }
 }
 
