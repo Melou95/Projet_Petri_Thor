@@ -9,6 +9,7 @@
 #include <iostream>
 #include <time.h>
 #include <vector>
+#include <tuple>
 #include <algorithm> // std::random_suffle
 using namespace std;
 
@@ -208,35 +209,56 @@ void Env::reinitialisation_env(){
 }
 
 void Env::competition(){
-  vector< Case > cases_vides;
-  vector< Bacterie * > bact_comp;
+  vector<int> coord;
+  vector<vector<int>> coord_vides;
+  vector< Case > case_fit;
+  //vector< Bacterie * > bact_comp;
   float fitness=0.0;
-  Bacterie * best_bact;
+  //Bacterie * best_bact;
+  Case best_case;
   for (int i=0; i<height_; ++i){
     for (int j=0; j<width_; ++j){
       if (grille_[i][j].p_bact()==nullptr){
-        cases_vides.push_back(grille_[i][j]);
+        coord.push_back(i);
+        coord.push_back(j);
+        coord_vides.push_back(coord);
+        coord.pop_back();
+        coord.pop_back();
       } 
     }
   }
-  random_shuffle(cases_vides.begin(), cases_vides.end()); // connaitre la position des cases !!!!!
-  for (vector< Case >::iterator it_case=cases_vides.begin(); it_case!=cases_vides.end(); ++it_case){
-    for (int k=-1;k<2;k++){
-      for (int l=-1;l<2;l++){
-        if (k!=0 and l!=0){
-          bact_comp.push_back(grille_[k][l].p_bact());
+  random_shuffle(coord_vides.begin(), coord_vides.end()); // connaitre la position des cases !!!!!
+  for (vector<vector<int>>::iterator it_coord=coord_vides.begin(); it_coord!=coord_vides.end(); ++it_coord){
+    for (vector<int>::iterator it_pos=coord.begin(); it_pos!=coord.end(); ++it_pos){
+      for (int v=*it_pos-1;v<*it_pos+2;v++){
+        for (int h=*it_pos-1;h<*it_pos+2;h++){
+          if (v!=*it_pos and h!=*it_pos){
+            if (v==32){v=0;}
+            if (v==-1){v=31;}
+            if (h==32){h=0;}
+            if (h==-1){h=31;}
+            if (grille_[v][h].p_bact() != nullptr){
+              case_fit.push_back(grille_[v][h]);
+            }
+          }
         }
       }
     }
-    random_shuffle(bact_comp.begin(), bact_comp.end());
-    for (vector< Bacterie * >::iterator it_bact=bact_comp.begin(); it_bact!=bact_comp.end(); ++it_bact){
-       if ((*it_bact)->fitness()>=fitness){
-          fitness=(*it_bact)->fitness();
-          best_bact=*it_bact;
-       }
+    if (case_fit.size()!=0){
+      random_shuffle(case_fit.begin(), case_fit.end());
+      for (vector< Case >::iterator it_case=case_fit.begin(); it_case!=case_fit.end(); ++it_case){
+        if ((*it_case).p_bact()->fitness()>=fitness){
+          fitness=(*it_case).p_bact()->fitness();
+          best_case=*it_case;
+        }
+      }
+      best_case.p_bact()->division();
+      vector<int> positions;
+      for (vector<int>::iterator it=coord.begin(); it!=coord.end(); ++it){
+        positions.push_back(*it);
+      }
+      grille_[positions[0]][positions[1]].set_p_bact(best_case.p_bact());
     }
-    best_bact->division();
-    (*it_case).set_p_bact(best_bact);
   }
 }
 
