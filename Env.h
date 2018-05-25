@@ -50,6 +50,8 @@ class Env {
   void run();
   void competition();
   Case ** copie_grille();
+  void reinitialisation_env_1_case(int x,int y);
+  void reinitialisation_env();
 
   protected :
   

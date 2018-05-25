@@ -32,6 +32,7 @@ class Case {
   // ===========================================================================
   void set_p_bact(const L& bact);
   void set_p_bact(const S& bact);
+  void set_p_bact(Bacterie* bact);
   void set_milieu(float a, float b, float c);
   // ===========================================================================
   //                       Protected Function members

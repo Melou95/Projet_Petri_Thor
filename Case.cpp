@@ -51,6 +51,19 @@ void Case::set_p_bact(const S& bact){
     }
     p_bact_=new S(bact);
   }
+  
+void Case::set_p_bact(Bacterie* bact){ // Si ça marche les deux précédents ne servent plus et il faut modif le code en conséquence
+    if (p_bact_!=nullptr){
+      delete p_bact_;
+    }
+    if (bact->type()=='S'){
+      p_bact_=new S(bact);
+    }
+    else if (bact->type()=='L'){
+      p_bact_=new L(bact);
+    }
+    
+  }
 
 void Case::set_milieu(float a, float b, float c){
     milieu_[0]=a;

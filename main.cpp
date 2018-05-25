@@ -40,8 +40,7 @@ int main(){
     Case c;
     c.set_milieu(0,0,0);
     cout<<c.milieu()[0]<<endl;
-    c.bact_metabolise();
-    cout<<c.milieu()[0]<<endl;
+
 
 
     cout << "Pour tester la fonction metabolise" << endl;
@@ -77,6 +76,11 @@ int main(){
     cout<<monde.grille()[0,31]->milieu()[1]<<endl;
     cout<<monde.grille()[18,5]->milieu()[2]<<endl;
     
+    cout << "Pour tester la fonction reinitialisation-env" << endl;
+    monde.reinitialisation_env();
+    cout<<monde.grille()[24,12]->milieu()[0]<<endl;
+    cout<<monde.grille()[0,31]->milieu()[1]<<endl;
+    cout<<monde.grille()[18,5]->milieu()[2]<<endl;
 
     return 0;
     
