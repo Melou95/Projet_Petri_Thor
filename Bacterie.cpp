@@ -15,7 +15,7 @@ Bacterie::Bacterie(){
   Pmut_=0.0;
   phenotype_ = vector<float>(3, 2.0);
   Pmut_=0;
-  Pdeath_=0.02;
+  Pdeath_=0.9;
   Wmin_=0.001;
   fitness_=0.0;
   type_=' ';
@@ -81,7 +81,7 @@ void Bacterie::division(){
 }
 
 void Bacterie::mutation(){
-  float nombre = rand() % 100 + 0;
+  float nombre = rand() % 100;
   nombre = nombre / 100;
   cout << "le nombre est " << nombre << endl;
   if (nombre < Pmut_){

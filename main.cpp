@@ -81,6 +81,9 @@ int main(){
     cout<<monde.grille()[24,12]->milieu()[0]<<endl;
     cout<<monde.grille()[0,31]->milieu()[1]<<endl;
     cout<<monde.grille()[18,5]->milieu()[2]<<endl;
+    
+    cout << "Pour tester les fonctions run et competition" << endl;
+    monde.run();
 
     return 0;
     
