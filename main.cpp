@@ -82,6 +82,8 @@ int main(){
     cout<<monde.grille()[0,31]->milieu()[1]<<endl;
     cout<<monde.grille()[18,5]->milieu()[2]<<endl;
 
+    cout << "La c'est termine" << endl;
+
     return 0;
     
 }
