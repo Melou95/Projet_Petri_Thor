@@ -229,7 +229,9 @@ void Env::competition(){
   }
   random_shuffle(coord_vides.begin(), coord_vides.end()); // connaitre la position des cases !!!!!
   for (vector<vector<int>>::iterator it_coord=coord_vides.begin(); it_coord!=coord_vides.end(); ++it_coord){
+    vector<int> positions;
     for (vector<int>::iterator it_pos=coord.begin(); it_pos!=coord.end(); ++it_pos){
+      positions.push_back(*it_pos);
       for (int v=*it_pos-1;v<*it_pos+2;v++){
         for (int h=*it_pos-1;h<*it_pos+2;h++){
           if (v!=*it_pos and h!=*it_pos){
@@ -253,10 +255,6 @@ void Env::competition(){
         }
       }
       best_case.p_bact()->division();
-      vector<int> positions;
-      for (vector<int>::iterator it=coord.begin(); it!=coord.end(); ++it){
-        positions.push_back(*it);
-      }
       grille_[positions[0]][positions[1]].set_p_bact(best_case.p_bact());
     }
   }
