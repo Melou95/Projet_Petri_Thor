@@ -14,13 +14,7 @@ using namespace std;
 Bacterie::Bacterie(){
   Pmut_=0.0;
   phenotype_ = vector<float>(3, 2.0);
-<<<<<<< HEAD
-  Pmut_=0;
-  Pdeath_=0.9;
-=======
-  Pmut_=0.0;
-  Pdeath_=1;
->>>>>>> f323f7809671e31fedbcea7318b31c6a7a696af2
+  Pdeath_=0.2;
   Wmin_=0.001;
   fitness_=0.0;
   type_=' ';
