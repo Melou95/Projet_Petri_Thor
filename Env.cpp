@@ -314,3 +314,29 @@ void Env::run(){
   this->reinitialisation_env();
   time=0;
 }
+
+void Env::affichage(){
+  for(int i=0;i<this->width_;++i){
+    cout << "----"; //première ligne
+  }
+  cout << "" << endl;
+  for (int j=0;j<this->height_;j++){
+    for(int i=0;i<this->width_;++i){
+      if (grille_[i][j].p_bact() == nullptr){
+        cout << "|   ";
+      }
+      else if (grille_[i][j].p_bact()->type()=='L'){
+        cout << "| L ";
+      } 
+      else {
+        cout << "| S ";
+      } 
+    }
+    cout << "| ";     
+    cout << "" << endl;   
+  }    
+  for(int i=0;i<this->width_;++i){
+    cout << "----"; 
+  }
+  cout << "" << endl;
+}
