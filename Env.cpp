@@ -81,11 +81,13 @@ void Env::etat(){
   int l=0;
   for(int i=0;i<height_;++i){
     for(int j=0;j<width_;++j){
-      if (grille_[i][j].p_bact()->type()=='S'){
-        s+=1;
-      }
-      else if (grille_[i][j].p_bact()->type()=='L'){
-        l+=1;
+      if (grille_[i][j].p_bact() != nullptr){
+        if (grille_[i][j].p_bact()->type()=='S'){
+          s+=1;
+        }
+        else if (grille_[i][j].p_bact()->type()=='L'){
+          l+=1;
+        }
       }
     }
   }
@@ -105,8 +107,16 @@ void Env::etat(){
 
 void Env::initialise(){
   srand(time(NULL));
-  int s=width_*height_/2;
-  int l=width_*height_/2;
+  int s;
+  int l;
+  if (width_*height_%2==0){
+    s=width_*height_/2;
+    l=width_*height_/2;
+  }
+  else{
+    s=(width_*height_-1)/2;
+    l=(width_*height_+1)/2;
+  }
   int nombre_aleatoire=0;
   for(int i=0;i<height_;++i){
     for(int j=0;j<width_;++j){
@@ -263,6 +273,7 @@ void Env::competition(){
 void Env::run(){
   int time=0;
   while (time < T_){
+    
     this->initialise();
     float p_death;
     for (int i=0;i<temps_simul_;++i){
