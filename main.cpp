@@ -36,6 +36,7 @@ int main(){
     cout << monde.D() << endl;
     monde.initialise();
     monde.etat();
+    monde.affichage();
     
     
     Case c;

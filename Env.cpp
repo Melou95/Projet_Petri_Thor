@@ -309,23 +309,23 @@ void Env::affichage(){
     cout << "----"; //première ligne
   }
   cout << "" << endl;
-  for (int j=;j<this->height_;j++){
+  for (int j=0;j<this->height_;j++){
     for(int i=0;i<this->width_;++i){
       if (grille_[i][j].p_bact() == nullptr){
-        cout << "| ";
+        cout << "|   ";
       }
-      else if (grille_[i][j].p_bact() == "L"){
-        cout << "|L ";
+      else if (grille_[i][j].p_bact()->type()=='L'){
+        cout << "| L ";
       } 
       else {
-        cout << "|S ";
+        cout << "| S ";
       } 
     }
-    cout << "  | ";     
+    cout << "| ";     
     cout << "" << endl;   
   }    
   for(int i=0;i<this->width_;++i){
-    cout << "----"; //première ligne
-    cout << "" << endl;
+    cout << "----"; 
   }
+  cout << "" << endl;
 }
