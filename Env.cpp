@@ -270,11 +270,13 @@ void Env::run(){
       int nombre_aleatoire=0;
       for(int i=0;i<height_;++i){
         for(int j=0;j<width_;++j){
-          float nombre = rand() % 100;
-          nombre = nombre / 100;
-          p_death=this->grille_[i][j].p_bact()->Pdeath();
-          if (nombre < p_death){
-            grille_[i][j].mort_bact();
+          if (grille_[i][j].p_bact() != nullptr){
+            float nombre = rand() % 100;
+            nombre = nombre / 100;
+            p_death=this->grille_[i][j].p_bact()->Pdeath();
+            if (nombre < p_death){
+              grille_[i][j].mort_bact();
+            }
           }
         }
       }
