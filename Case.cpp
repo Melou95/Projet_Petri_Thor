@@ -77,7 +77,6 @@ void Case::set_milieu(float a, float b, float c){
 // =============================================================================
 
 void Case::mort_bact(){
-  srand(time(NULL));
   float nombre = rand()%101;
   nombre = nombre / 100;
   if (nombre < p_bact_->Pdeath()){

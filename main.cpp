@@ -7,6 +7,7 @@
 using namespace std;
 
 int main(){
+    srand(1); //time(NULL)
     //Vérification de la mise en place de l'environnement
     cout<< "Hello World !\0" <<endl;
     cout<< " " <<endl;

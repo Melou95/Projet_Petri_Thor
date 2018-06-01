@@ -106,7 +106,6 @@ void Env::etat(){
 
 
 void Env::initialise(){
-  srand(time(NULL));
   int s;
   int l;
   if (width_*height_%2==0){
@@ -273,7 +272,6 @@ void Env::competition(){
 void Env::run(){
   int time=0;
   while (time < T_){
-    
     this->initialise();
     float p_death;
     for (int i=0;i<temps_simul_;++i){
