@@ -105,8 +105,8 @@ void Env::etat(){
 
 void Env::initialise(){
   srand(time(NULL));
-  int s=512;
-  int l=512;
+  int s=width_*height_/2;
+  int l=width_*height_/2;
   int nombre_aleatoire=0;
   for(int i=0;i<height_;++i){
     for(int j=0;j<width_;++j){
@@ -146,11 +146,11 @@ void Env::diffusion_1_case(int x,int y, Case ** grille1){
   for (int i=-1;i<2;++i){
     for (int j=-1;j<2;++j){
       int x1 = x+i;
-      if (x1==32){x1=0;}
-      if (x1==-1){x1=31;}
+      if (x1==width_){x1=0;}
+      if (x1==-1){x1=width_-1;}
       int y1 = y+j;
-      if (y1==32){y1=0;}
-      if (y1==-1){y1=31;}
+      if (y1==height_){y1=0;}
+      if (y1==-1){y1=height_-1;}
       this->grille_[x][y].set_milieu(this->grille_[x][y].milieu()[0]+D_*grille1[x1][y1].milieu()[0],
       this->grille_[x][y].milieu()[1]+D_*grille1[x1][y1].milieu()[1],
       this->grille_[x][y].milieu()[2]+D_*grille1[x1][y1].milieu()[2]);
@@ -235,10 +235,10 @@ void Env::competition(){
       for (int v=*it_pos-1;v<*it_pos+2;v++){
         for (int h=*it_pos-1;h<*it_pos+2;h++){
           if (v!=*it_pos and h!=*it_pos){
-            if (v==32){v=0;}
-            if (v==-1){v=31;}
-            if (h==32){h=0;}
-            if (h==-1){h=31;}
+            if (v==width_){v=0;}
+            if (v==-1){v=width_-1;}
+            if (h==height_){h=0;}
+            if (h==-1){h=height_-1;}
             if (grille_[v][h].p_bact() != nullptr){
               case_fit.push_back(grille_[v][h]);
             }
