@@ -94,7 +94,7 @@ int main(){
       int nb_ext=0;
       int nb_exclu=0;
       int nb_cohab=0;
-      for (int T=1; T<150; T+50){
+      for (int T=1; T<3; T+=50){
         for (float Ainit=1; Ainit<3; ++Ainit){
           Env monde;
           monde.set_T(T);
