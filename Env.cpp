@@ -10,13 +10,14 @@
 #include <time.h>
 #include <vector>
 #include <tuple>
+#include <string>
 #include <algorithm> // std::random_suffle
 using namespace std;
 
 // =============================================================================
 //                              Constructors
 // =============================================================================
-Env::Env() : T_(1), D_(0.1), Ainit_(1.0), width_(32), height_(32), temps_simul_(10){
+Env::Env() : T_(1), D_(0.1), Ainit_(1), width_(32), height_(32), temps_simul_(150){
   grille_ = new Case * [height_]; // [n] réserve n élément du type qui précède
   for(int i=0;i<height_;++i){
     grille_[i] = new Case [width_];
@@ -71,12 +72,22 @@ int Env::temps_simul(){
 //                                Setters
 // ===========================================================================
 
+void Env::set_T(int T){
+  T_=T;
+}
   
+void Env::set_D(float D){
+  D_=D;
+}
+
+void Env::set_Ainit(int Ainit){
+  Ainit_=Ainit;
+}  
   
 // =============================================================================
 //                         Public function members
 // =============================================================================
-void Env::etat(){
+string Env::etat(){
   int s=0;
   int l=0;
   for(int i=0;i<height_;++i){
@@ -93,14 +104,14 @@ void Env::etat(){
   }
   if(s==0){
     if (l==0){
-      cout << "Extinction" << endl;
+      return("Extinction");
     }
     else {
-      cout << "Exclusion" << endl;
+      return("Exclusion");
     }
   }
   else {
-    cout << "Cohabitation" << endl;
+    return("Cohabitation");
   }  
 }
 

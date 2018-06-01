@@ -4,6 +4,8 @@
 #include "Env.h"
 #include "L.h"
 #include "S.h"
+#include <fstream>
+#include <string>
 using namespace std;
 
 int main(){
@@ -84,7 +86,39 @@ int main(){
     cout<<monde.grille()[18,5]->milieu()[2]<<endl;
     
     cout << "Pour tester les fonctions run et competition" << endl;
-    monde.run();
+    
+    ofstream fichier("resultats.txt", ios::out | ios::trunc);
+    if(fichier){   
+      fichier << "T\tAinit\tEtat" << endl;
+      int nb_ext=0;
+      int nb_exclu=0;
+      int nb_cohab=0;
+      for (int T=1; T<150; T+50){
+        for (float Ainit=1; Ainit<3; ++Ainit){
+          Env monde;
+          monde.set_T(T);
+          monde.set_Ainit(Ainit);
+          monde.run();
+          string resultat=monde.etat();
+          if (resultat=="Extinction"){
+            ++nb_ext;
+          }
+          else if (resultat=="Exclusion"){
+            ++nb_exclu;
+          }
+          else if (resultat=="Cohabitation"){
+            ++nb_cohab;
+          }
+          fichier << T << "\t" << Ainit << "\t" << resultat << endl;
+        }
+      }
+      fichier << "Nb Extinction\tNb Exclusion\tNb Cohabitation" << endl;
+      fichier << nb_ext << "\t" << nb_exclu << "\t" << nb_cohab << endl;
+    }
+    else{
+      cerr << "Impossible d'ouvrir le fichier" << endl;
+    }
+    
 
     return 0;
     
