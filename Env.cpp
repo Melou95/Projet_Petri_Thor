@@ -227,7 +227,7 @@ void Env::competition(){
       } 
     }
   }
-  random_shuffle(coord_vides.begin(), coord_vides.end()); // connaitre la position des cases !!!!!
+  random_shuffle(coord_vides.begin(), coord_vides.end()); 
   for (vector<vector<int>>::iterator it_coord=coord_vides.begin(); it_coord!=coord_vides.end(); ++it_coord){
     vector<int> positions;
     for (vector<int>::iterator it_pos=coord.begin(); it_pos!=coord.end(); ++it_pos){
@@ -281,7 +281,9 @@ void Env::run(){
       this->competition();
       for(int i=0;i<height_;++i){
         for(int j=0;j<width_;++j){
-          this->grille_[i][j].bact_metabolise();
+          if (grille_[i][j].p_bact() != nullptr){
+            this->grille_[i][j].bact_metabolise();
+          }
         }
       }
     }
