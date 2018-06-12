@@ -9,7 +9,7 @@
 using namespace std;
 
 int main(){
-    srand(1); //time(NULL)
+    srand(time(NULL)); //time(NULL)
     //Vérification de la mise en place de l'environnement
     cout<< "Hello World !\0" <<endl;
     cout<< " " <<endl;
@@ -75,7 +75,12 @@ int main(){
     cout<<monde.grille()[0,0]->milieu()[0]<<endl;
     cout<<monde.grille()[0,0]->milieu()[1]<<endl;
     cout<<monde.grille()[0,0]->milieu()[2]<<endl;
-    monde.diffusion();
+    for (int i=0; i<7; ++i){
+        monde.diffusion();
+        /*cout<<monde.grille()[24,12]->milieu()[0]<<endl;
+        cout<<monde.grille()[0,31]->milieu()[0]<<endl;
+        cout<<monde.grille()[18,5]->milieu()[0]<<endl;*/
+        }
     cout<<monde.grille()[24,12]->milieu()[0]<<endl;
     cout<<monde.grille()[0,31]->milieu()[1]<<endl;
     cout<<monde.grille()[18,5]->milieu()[2]<<endl;
@@ -88,19 +93,21 @@ int main(){
     
     cout << "Pour tester les fonctions run et competition" << endl;
     
-    ofstream fichier("resultats.txt", ios::out | ios::trunc);
+   ofstream fichier("resultats.txt", ios::out | ios::trunc);
     if(fichier){   
       fichier << "T\tAinit\tEtat" << endl;
       int nb_ext=0;
       int nb_exclu=0;
       int nb_cohab=0;
-      for (int T=1; T<3; T+=50){
-        for (float Ainit=1; Ainit<3; ++Ainit){
+      for (float Ainit=0; Ainit<10; Ainit+=1){
+        for (int T=50; T<1501; T+=50){
           Env monde;
+          //int T=5000;
           monde.set_T(T);
           monde.set_Ainit(Ainit);
           monde.run();
           string resultat=monde.etat();
+          cout<< "A : " << Ainit << " T : " << T << " " << resultat << endl;
           if (resultat=="Extinction"){
             ++nb_ext;
           }
@@ -111,16 +118,16 @@ int main(){
             ++nb_cohab;
           }
           fichier << T << "\t" << Ainit << "\t" << resultat << endl;
-        }
+        //}
       }
       fichier << "Nb Extinction\tNb Exclusion\tNb Cohabitation" << endl;
       fichier << nb_ext << "\t" << nb_exclu << "\t" << nb_cohab << endl;
+    }
     }
     else{
       cerr << "Impossible d'ouvrir le fichier" << endl;
     }
     
-
     return 0;
     
 }

@@ -13,8 +13,8 @@ using namespace std;
 // =============================================================================
 Bacterie::Bacterie(){
   Pmut_=0.0;
-  phenotype_ = vector<float>(3, 2.0);
-  Pdeath_=0.2;
+  phenotype_ = vector<float>(3, 0.0);
+  Pdeath_=0.02;
   Wmin_=0.001;
   fitness_=0.0;
   type_=' ';
@@ -61,7 +61,7 @@ void Bacterie::set_phenotype(float a, float b, float c){
   phenotype_[2]=c;
 }
 
-void Bacterie::fitness(float fit){
+void Bacterie::set_fitness(float fit){
   fitness_=fit;
 }
 
@@ -73,6 +73,7 @@ void Bacterie::set_type(char nom){
 //                         Public function members
 // =============================================================================
 void Bacterie::division(){
+  this->mutation();
   for (int i=0 ; i<phenotype_.size(); ++i)
   {
    phenotype_[i]/=2;
@@ -82,13 +83,17 @@ void Bacterie::division(){
 void Bacterie::mutation(){
   float nombre = rand()%100;
   nombre = nombre / 100;
-  cout << "le nombre est " << nombre << endl;
+  //cout << "le nombre est " << nombre << endl;
   if (nombre < Pmut_){
     if (type_ == 'S'){
       set_type('L');
+      set_fitness(phenotype_[1]);
+      //cout << "mutation" <<endl;
     }
     else {
       set_type('S');
+      set_fitness(phenotype_[2]);
+      //cout << "mutation" <<endl;
     }
   }
 }

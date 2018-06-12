@@ -36,7 +36,7 @@ class Bacterie {
   //                                Setters
   // ===========================================================================
   void set_phenotype(float a, float b, float c);
-  void fitness(float fit);
+  void set_fitness(float fit);
   void set_type(char nom);
 
 //===========================================================================
